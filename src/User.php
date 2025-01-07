@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'products')]
 class User 
 {
-    #[ORM\ID]
+    #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue]
     private int|null $id = null;
