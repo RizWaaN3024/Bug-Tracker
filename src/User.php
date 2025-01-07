@@ -1,7 +1,17 @@
 <?php
+
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity]
+#[ORM\Table(name: 'products')]
 class User 
 {
-    private $username;
+    #[ORM\ID]
+    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue]
+    private int|null $id = null;
+    #[ORM\Column(type: 'string')]
+    private string $username;
     private $passwordHash;
     private $bans;
 
