@@ -6,5 +6,5 @@ $productRepository = $entityManager->getRepository('Product');
 $products = $productRepository->findAll();
 
 foreach($products as $product) {
-    echo sprintf($product->getName());
+    echo sprintf("-%s\n", $product->getName());
 }
