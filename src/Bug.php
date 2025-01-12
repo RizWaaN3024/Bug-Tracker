@@ -1,5 +1,7 @@
 <?php
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -19,6 +21,9 @@ class Bug
 
     #[ORM\Column(type: 'string')]
     private string $status;
+
+    /** @var Collection<int, Product> */
+    private Collection $products;
 
     public function getId(): int|null
     {
@@ -53,5 +58,10 @@ class Bug
     public function setStatus(string $status): void
     {
         $this->status = $status;
+    }
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
     }
 }
