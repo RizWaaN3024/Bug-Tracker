@@ -22,6 +22,9 @@ class Bug
     #[ORM\Column(type: 'string')]
     private string $status;
 
+    private User $engineer;
+    private User $reporter;
+
     /** @var Collection<int, Product> */
     private Collection $products;
 
@@ -58,6 +61,12 @@ class Bug
     public function setStatus(string $status): void
     {
         $this->status = $status;
+    }
+
+    public function setEngineer(User $engineer): void
+    {
+        $engineer->assignedToBug($this);
+        $this->engineer = $engineer;
     }
 
     public function __construct()

@@ -37,6 +37,15 @@ class User
         $this->name = $name;
     }
 
+    public function addReportedBugs(Bug $bug): void
+    {
+        $this->reportedBugs[] = $bug;
+    }
+
+    public function assignedToBug(Bug $bug): void
+    {
+        $this->assignedBugs[] = $bug;
+    }
     public function __construct()
     {
         $this->reportedBugs = new ArrayCollection();
