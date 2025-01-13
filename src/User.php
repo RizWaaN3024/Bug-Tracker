@@ -46,6 +46,7 @@ class User
     {
         $this->assignedBugs[] = $bug;
     }
+    
     public function __construct()
     {
         $this->reportedBugs = new ArrayCollection();
